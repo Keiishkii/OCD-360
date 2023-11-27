@@ -62,7 +62,7 @@ public class DataAnalysis : MonoBehaviour
     #endregion
 
     #region [ Unserialised Fields ]
-    private bool _displayAsFull;
+        private bool _displayAsFull;
         private GazeData _data;
         private float _timePoint;
         private Transform _timePointGazeTransform;
