@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
+  m_Name: Practice Instructions 3
+  m_EditorClassIdentifier: 
+  displayTitle: 0
+  title: ---
+  displayContent: 1
+  content: "Upon initially viewing this outdoor scene you may, for example, feel
+    slightly happy and a little relaxed.\r\n\r\nIn this case, you would move the
+    joystick with your thumb to the right. \n\nA small target has now appeared on
+    the affect scale UI, move the joystickl to match your arousal and valance to
+    the highlighted target.\r"
+  displayContinueCondition: 1
+  continueCondition: Perform target <color=green>RATING</color> to continue

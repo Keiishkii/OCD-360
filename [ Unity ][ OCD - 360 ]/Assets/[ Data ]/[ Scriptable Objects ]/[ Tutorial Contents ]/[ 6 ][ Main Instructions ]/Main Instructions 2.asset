@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
+  m_Name: Main Instructions 2
+  m_EditorClassIdentifier: 
+  title: 
+  content: 'Each test block will take a total of 2 minutes to perform, and each block
+    will be separated by a short 30 second relaxation scene.
+
+
+    During each relaxation
+    scene please remain relatively still and continue to attend to the image presented
+    on the cinema screen in front of you.
+
+
+    This is important as each relaxation
+    block will be used as a baseline measurement for the various physiological signals
+    that we will be recording throughout the task.
+
+'
+  continueCondition: Pull the <color=green>TRIGGER</color> to continue...

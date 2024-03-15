@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
+  m_Name: Practice Instructions 10
+  m_EditorClassIdentifier: 
+  title: ---
+  content: "Occasionally the second viewpoint may elicit very similar feelings of
+    arousal and valence to the first viewpoint. \r\n\r\nIn these instances, we ask
+    that you continue to keep your thumb in contact with the touchpad at the chosen
+    location to maintain a continuous rating score between the scenes. \r\n\r\nThe
+    touchpad is highly sensitive and even the slightest change in thumb position
+    will be recorded and will be of interest to us when we come to analyse the data.\r"
+  continueCondition: Pull the <color=green>TRIGGER</color> to continue

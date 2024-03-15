@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
+  m_Name: Study Introduction 1
+  m_EditorClassIdentifier: 
+  title: 'Study Introduction [ 1 / 2 ]:'
+  content: "In the main part of this study you will be shown images of communal kitchens
+    and bathrooms, on the cinema screen in front of you. \n\nFor each image you will
+    be required to make a rating based upon how positive/negative you would feel
+    within this environment \n(i.e. a valence rating). \r\n\nAs well as how anxious/relaxed
+    you would feel within this environment (i.e. an arousal rating).\r"
+  continueCondition: Pull the <color=green>TRIGGER</color> to continue
