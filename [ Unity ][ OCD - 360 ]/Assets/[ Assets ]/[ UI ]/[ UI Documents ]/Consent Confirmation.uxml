@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="TopPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); top: 0; bottom: 40%; height: 60%; width: 100%; position: absolute; align-items: center; flex-direction: row;">
+        <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(241, 94, 94); position: absolute; width: 100%; height: 100%; border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;" />
+        <ui:VisualElement name="Contents" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; left: 20px; top: 20px; right: 20px; bottom: 20px; flex-direction: row;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 15%; height: 100%; justify-content: center; align-items: center;">
+                <ui:Label tabindex="-1" text="!" display-tooltip-when-elided="true" style="width: auto; height: auto; font-size: 100px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="TextArea" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: relative; left: auto; top: auto; right: auto; bottom: auto; align-items: center; justify-content: center; align-self: auto; width: 70%; height: 100%;">
+                <ui:Label tabindex="-1" text="This experiment is continuously recording eye tracking data  " display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); font-size: 36px; align-self: auto; text-overflow: clip; white-space: normal; -unity-font-style: bold; -unity-text-align: upper-center;" />
+                <ui:Label tabindex="-1" text="Click START to confirm that this element of the experiment is understood and accepted" display-tooltip-when-elided="true" style="font-size: 24px; align-items: auto; white-space: normal; -unity-font-style: bold; -unity-text-align: upper-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 15%; height: 100%; justify-content: center; align-items: center;">
+                <ui:Label tabindex="-1" text="!" display-tooltip-when-elided="true" style="width: auto; height: auto; font-size: 100px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="BottomPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); top: 60%; bottom: 40%; position: absolute; width: 100%; height: 40%; justify-content: flex-end; align-items: center; visibility: visible;">
+        <ui:Button text="Start" display-tooltip-when-elided="true" name="StartButton" style="background-color: rgb(241, 94, 94); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 6px; border-right-width: 6px; border-top-width: 6px; border-bottom-width: 6px; font-size: 40px; color: rgb(255, 255, 255); -unity-font-style: bold; width: 40%;" />
+    </ui:VisualElement>
+</ui:UXML>
