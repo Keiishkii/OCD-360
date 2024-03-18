@@ -43,11 +43,11 @@ namespace MINELab
         [SerializeField] private TutorialContentScriptableObject _mainInstructions3PanelData;
         [SerializeField] private TutorialContentScriptableObject _mainInstructions4PanelData;
         
-        [SerializeField] private EnvironmentDisplayData _enviroment1Data;
-        [SerializeField] private EnvironmentDisplayData _enviroment2Data;
-        [SerializeField] private EnvironmentDisplayData _enviroment3Data;
-        [SerializeField] private EnvironmentDisplayData _enviroment4Data;
-        [SerializeField] private EnvironmentDisplayData _enviroment5Data;
+        [SerializeField] private Trial _enviroment1Data;
+        [SerializeField] private Trial _enviroment2Data;
+        [SerializeField] private Trial _enviroment3Data;
+        [SerializeField] private Trial _enviroment4Data;
+        [SerializeField] private Trial _enviroment5Data;
         
         [SerializeField] private Vector2 _tutorial1InputTarget;
         [SerializeField] private Vector2 _tutorial2InputTarget;

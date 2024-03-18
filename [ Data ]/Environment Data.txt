@@ -1,0 +1,13 @@
+Clean Public Kitchen:		
+Clean Private Kitchen:		(031 SR)(038 SR)(VID_20230515_191949_00_048)(VID_20230518_090310_00_130)
+Mild Public Kitchen:		
+Mild Private Kitchen:		(012 SR)
+Moderate Public Kitchen:
+Moderate Private Kitchen:	(040 SR)(036 SR)
+
+Clean Public Bathroom:		(014 SR)
+Clean Private Bathroom:		(027 SR)
+Mild Public Bathroom:		(033 SR)
+Mild Private Bathroom:		(029 SR)
+Moderate Public Bathroom:	(015 SR)
+Moderate Private Bathroom:	(023 SR)

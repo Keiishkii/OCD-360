@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 12
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: Practice Task Completed
+  displayContent: 1
   content: 'You should now have a good understanding of the task, the rating system
     and the controls used to make these ratings.
 
@@ -20,6 +22,7 @@ MonoBehaviour:
     Please let the research team
     know if you have any questions about the task or if you wish to repeat the practice
     task.'
+  displayContinueCondition: 1
   continueCondition: 'Press/Click the <color=red>TOUCHPAD</color> to repeat the practice
     task
 

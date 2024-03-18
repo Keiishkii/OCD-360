@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public class EnvironmentDisplayData
+public class Trial
 {
     public EnvironmentDataScriptableObject environmentMaterial;
     public float environmentYRotationOffset;

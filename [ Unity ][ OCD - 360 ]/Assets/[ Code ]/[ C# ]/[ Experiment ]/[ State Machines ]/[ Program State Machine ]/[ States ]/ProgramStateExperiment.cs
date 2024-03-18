@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
+
+using EmteqLabs;
 
 namespace MINELab
 {
@@ -11,7 +14,7 @@ namespace MINELab
     {
         #region [ Serialised Fields ]
         [SerializeField] private GameObject _affectScaleUIGameObject;
-        [SerializeField] private List<EnvironmentDisplayData> _enviromentList = new ();
+        [SerializeField] private List<Block> _blocks;
         [SerializeField] private float _environmentHoldDuration;
         #endregion
 
@@ -42,23 +45,45 @@ namespace MINELab
 
         private IEnumerator ExperimentCoroutine()
         {
-            yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
+            for (int blockIndex = 0; blockIndex < _blocks.Count; blockIndex++)
             {
-                _affectScaleUIGameObject.SetActive(true);
+                int unmodifiedBlockIndex = blockIndex;
+                for (int trialIndex = 0; trialIndex < _blocks[blockIndex].trials.Count; trialIndex++)
+                {
+                    int unmodifiedTrialIndex = trialIndex;
+                    Trial trialData = _blocks[unmodifiedBlockIndex].trials[unmodifiedTrialIndex];
+
+                    // Display Trial From View 1
+                    float environmentYRotationOffset = trialData.environmentYRotationOffset + (Random.Range(45f, 135f) * (Random.Range(0, 1) == 0 ? 1 : -1));
+                    yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
+                    {
+                        if (unmodifiedBlockIndex == 0 && unmodifiedTrialIndex == 0) _affectScaleUIGameObject.SetActive(true);
+                        EnvironmentManager.Instance.SetEnvironment(trialData.environmentMaterial, environmentYRotationOffset);
+                        
+                        Debug.Log($"Environment Rotation: {environmentYRotationOffset}");
+                    });
                 
-                EnvironmentDisplayData data = _enviromentList[0];
-                EnvironmentManager.Instance.SetEnvironment(data.environmentMaterial, data.environmentYRotationOffset);
-            });
-            
-            yield return new WaitForSeconds(_environmentHoldDuration);
-            
-            for (int i = 1; i < _enviromentList.Count; i++)
-            {
-                int environmentIndex = i;
+                    yield return new WaitForSeconds(_environmentHoldDuration);
+                    
+                    // Display Trial From View 2
+                    float mirroredEnvironmentYRotationOffset = environmentYRotationOffset + 180;
+                    yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
+                    {
+                        if (unmodifiedBlockIndex == 0 && unmodifiedTrialIndex == 0) _affectScaleUIGameObject.SetActive(true);
+                        EnvironmentManager.Instance.SetEnvironment(trialData.environmentMaterial, mirroredEnvironmentYRotationOffset);
+                        
+                        Debug.Log($"Mirrored Environment Rotation: {mirroredEnvironmentYRotationOffset}");
+                    });
+                
+                    yield return new WaitForSeconds(_environmentHoldDuration);
+                }
+                
+                // Display Block Beach
+                List<EnvironmentDataScriptableObject> beachEnvironments = _blocks[unmodifiedBlockIndex]._beachEnvironments;
+                EnvironmentDataScriptableObject beachData = beachEnvironments[Random.Range(0, beachEnvironments.Count)];
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    EnvironmentDisplayData data = _enviromentList[environmentIndex];
-                    EnvironmentManager.Instance.SetEnvironment(data.environmentMaterial, data.environmentYRotationOffset);
+                    EnvironmentManager.Instance.SetEnvironment(beachData, 0);
                 });
                 
                 yield return new WaitForSeconds(_environmentHoldDuration);

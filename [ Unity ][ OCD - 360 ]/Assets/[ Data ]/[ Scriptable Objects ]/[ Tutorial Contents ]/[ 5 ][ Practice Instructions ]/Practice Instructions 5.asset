@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 5
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: indoor scenes
+  displayContent: 1
   content: "Indoor scenes represent everyday public and private shared spaces that
     you might come across in the real world.\r\n\r\nWe ask that you imagine that
     you need to use these facilities and then consider how comfortable you would
     feel doing so.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

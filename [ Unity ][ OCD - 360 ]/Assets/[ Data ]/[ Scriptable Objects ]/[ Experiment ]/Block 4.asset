@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bed2b79efd11049bb7e016e656534b, type: 3}
+  m_Name: Block 4
+  m_EditorClassIdentifier: 
+  trials:
+  - environmentMaterial: {fileID: 11400000, guid: e33deb9d5518bd8468dec21cfcd43efc, type: 2}
+    environmentYRotationOffset: 0
+  - environmentMaterial: {fileID: 11400000, guid: 0f80ad7439e668041ac8293bff2cd9c3, type: 2}
+    environmentYRotationOffset: 0
+  - environmentMaterial: {fileID: 11400000, guid: 980780ad826e54543be5d50cd27c9c66, type: 2}
+    environmentYRotationOffset: 0
+  - environmentMaterial: {fileID: 11400000, guid: 0ac7407d3dba3874b9697cd1938ec1d4, type: 2}
+    environmentYRotationOffset: 0
+  - environmentMaterial: {fileID: 11400000, guid: 798cafdc27300254f93546ffdec8848c, type: 2}
+    environmentYRotationOffset: 0
+  - environmentMaterial: {fileID: 11400000, guid: f3430cbc99d8d1b47b640d8981ae81e6, type: 2}
+    environmentYRotationOffset: 0
+  _beachEnvironments:
+  - {fileID: 11400000, guid: 9eefaa8f7fd8c1b43ab7e45a4e85702c, type: 2}

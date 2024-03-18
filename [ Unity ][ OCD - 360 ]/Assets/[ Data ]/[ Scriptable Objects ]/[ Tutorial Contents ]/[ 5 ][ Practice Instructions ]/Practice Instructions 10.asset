@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 10
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "Occasionally the second viewpoint may elicit very similar feelings of
     arousal and valence to the first viewpoint. \r\n\r\nIn these instances, we ask
     that you continue to keep your thumb in contact with the touchpad at the chosen
     location to maintain a continuous rating score between the scenes. \r\n\r\nThe
     touchpad is highly sensitive and even the slightest change in thumb position
     will be recorded and will be of interest to us when we come to analyse the data.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

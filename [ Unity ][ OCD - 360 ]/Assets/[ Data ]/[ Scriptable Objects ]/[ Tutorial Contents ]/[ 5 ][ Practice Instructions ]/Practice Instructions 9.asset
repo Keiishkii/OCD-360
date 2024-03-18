@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 9
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "In this example, the shared office space appears to be a clean and welcoming
     space within which to work.\r\n\r\nTherefore, move your thumb to the target location
     on the touchpad to signal a positive valence and mid-level arousal.\r"
+  displayContinueCondition: 1
   continueCondition: Perform target <color=green>RATING</color> to continue

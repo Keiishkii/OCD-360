@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8634303694e6b344b9f19ecbfd4f81d3, type: 3}
-  m_Name: Environment Data - Bathroom (015 SR)
+  m_Name: Environment Data - Kitchen (VID_20230518_090310_00_130)
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: bf2a567a0e4bfbb408d16a0e1ec6765f, type: 2}
-  rotationOffset: {x: 356.84, y: 2.96, z: 1.9000018}
+  material: {fileID: 2100000, guid: 5c53945f5f995e44b9657af772284931, type: 2}
+  rotationOffset: {x: 0.029997824, y: 1.3027554e-11, z: 0.60999876}

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Rating Introduction 5
   m_EditorClassIdentifier: 
-  displayTitle: 0
+  displayTitle: 1
   title: AFFECT SCALE
-  displayContent: 0
+  displayContent: 1
   content: "A new UI element will now be visible from the top of you right hand controller.
     This displays the values your finger position translates to for both valence
     and arousal values. \n\nMove your thumb around to get a feel for how it works."
-  displayContinueCondition: 0
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to be taken to a practice
     version of the main experiment

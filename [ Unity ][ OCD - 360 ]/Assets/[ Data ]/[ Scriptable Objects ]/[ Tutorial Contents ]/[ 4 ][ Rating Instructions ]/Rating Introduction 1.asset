@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Rating Introduction 1
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: 'How to use the controller to make valance and arousal ratings [ 1 / 2 ]:'
+  displayContent: 1
   content: "Your controller has a touchpad that tracks the position of your thumb.\r"
+  displayContinueCondition: 1
   continueCondition: Press/Click the <color=green>TOUCHPAD</color> to continue

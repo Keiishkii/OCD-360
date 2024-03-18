@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Rating Introduction 4
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: AROUSAL
+  displayContent: 1
   content: 'Describes the INTENSITY of your emotions.
 
 
@@ -23,4 +25,5 @@ MonoBehaviour:
 
     <color=red>DOWN</color>:
     relaxed, sluggish, sleepy'
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

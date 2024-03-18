@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 4
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "Each scene will be presented for 30 seconds. \n\nWe therefore encourage
     you to continuously and dynamically change your rating as your feelings about
     the scene change and develop.\r\n\r\nFor example, you may feel yourself becoming
     more relaxed as you continue to visually explore and imagine being within this
     scene. \n\nTherefore, move your thumb to the target location on the touchpad
     to signal a reduction in arousal.\r"
+  displayContinueCondition: 1
   continueCondition: Perform target <color=green>RATING</color> to continue

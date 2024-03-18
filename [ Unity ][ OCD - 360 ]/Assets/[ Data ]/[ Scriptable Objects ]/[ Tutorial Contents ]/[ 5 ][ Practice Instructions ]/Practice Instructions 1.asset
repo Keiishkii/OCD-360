@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 1
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: Practice Task
+  displayContent: 1
   content: For the purpose of this practice task, you will be shown three different
     real-world environments and will be trained on how to use the controller to perform
     valance and arousal ratings for each scene.
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to start the task

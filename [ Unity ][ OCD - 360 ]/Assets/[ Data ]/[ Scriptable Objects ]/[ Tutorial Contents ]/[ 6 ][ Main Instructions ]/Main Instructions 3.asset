@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Main Instructions 3
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: 
+  displayContent: 1
   content: "In total the whole task will take approximately 15 mins to complete.
     \r\n\r\nHowever, if you experience any discomfort (nausea, headaches, dizziness)
     during the task please use the relaxation periods in the task to talk to the
     research team to discuss how you are feeling. \r\n\r\nPlease note that due to
     the short duration of the task we do not anticipate this to be an issue for most
     users.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue...

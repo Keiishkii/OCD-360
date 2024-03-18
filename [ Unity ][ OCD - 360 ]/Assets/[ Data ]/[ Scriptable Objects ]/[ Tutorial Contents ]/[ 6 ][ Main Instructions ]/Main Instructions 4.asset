@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Main Instructions 4
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: ready to start the main task
+  displayContent: 1
   content: Please inform the research team that you are about to start the main task
     and await confirmation from the team before proceeding.
+  displayContinueCondition: 1
   continueCondition: Then pull the <color=green>TRIGGER</color> to start the main
     task

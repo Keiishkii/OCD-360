@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Environment Data - Kitchen (040 SR)
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: ff1ee00dfcad0d4459814e4b700a8889, type: 2}
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 358.7, y: 0, z: 7.0700026}

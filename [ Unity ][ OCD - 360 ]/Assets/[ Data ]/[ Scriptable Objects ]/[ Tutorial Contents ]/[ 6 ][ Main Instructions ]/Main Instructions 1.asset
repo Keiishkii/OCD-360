@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Main Instructions 1
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: main task
+  displayContent: 1
   content: "The main task will consist of 6 test blocks. \r\n\r\nEach block will
     contain one bathroom scene and one kitchen scene, with two different viewpoints
     being shown for each scene.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue...

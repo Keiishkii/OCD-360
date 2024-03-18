@@ -23,6 +23,8 @@ public class TutorialContentScriptableObject : ScriptableObject
             KeiishkiiLib.InspectorUtility.BooleanField("Display Continue Condition:", ref _targetScript.displayContinueCondition);
             if (_targetScript.displayContinueCondition) EditorGUILayout.TextArea(_targetScript.continueCondition);
             EditorStyles.textField.wordWrap = previousWordWrapSetting;
+            
+            EditorUtility.SetDirty(_targetScript);
         }
     }
     

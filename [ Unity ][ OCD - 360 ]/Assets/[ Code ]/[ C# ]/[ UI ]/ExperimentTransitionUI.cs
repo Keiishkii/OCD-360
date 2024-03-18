@@ -3,7 +3,11 @@ using UnityEngine.UIElements;
 
 public class ExperimentTransitionUI : MonoBehaviour
 {
-    #region [ Serialised Fields ]
+    #region [ Serialsed Fields ]
+    [SerializeField] public CanvasGroup _canvasGroup;
+    #endregion
+    
+    #region [ Unserialised Fields ]
     private float _alpha = 0f;
     public float Alpha
     {
@@ -11,7 +15,7 @@ public class ExperimentTransitionUI : MonoBehaviour
         set
         {
             _alpha = value;
-            _backgroundVisualElement.style.backgroundColor = new StyleColor(new Color(0, 0, 0, value));
+            _canvasGroup.alpha = value;
         }
     }
 
@@ -22,27 +26,15 @@ public class ExperimentTransitionUI : MonoBehaviour
         set
         {
             _interactable = value;
-            _backgroundVisualElement.pickingMode = (value) ? PickingMode.Position : PickingMode.Ignore;
+            _canvasGroup.interactable = value;
         }
     }
-    #endregion
-    
-    #region [ Unserialised Fields ]
-    private UIDocument _uiDocument;
-    private VisualElement _root;
-    
-    private VisualElement _backgroundVisualElement;
     #endregion
 
 
     
     private void Awake()
     {
-        _uiDocument = GetComponent<UIDocument>();
-        _root = _uiDocument.rootVisualElement;
-        
-        _backgroundVisualElement = _root.Query<VisualElement>("Background");
-
         Interactable = false;
         Alpha = 0;
     }

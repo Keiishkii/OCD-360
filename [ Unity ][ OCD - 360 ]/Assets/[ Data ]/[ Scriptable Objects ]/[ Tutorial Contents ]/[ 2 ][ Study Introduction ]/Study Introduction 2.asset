@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Study Introduction 2
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: 'Study Introduction [ 2 / 2 ]:'
+  displayContent: 1
   content: These ratings will be performed using the thumb touchpad on the VR controller
     and a practice session will follow shortly to help you better understand the
     rating system and its use within the main task.
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

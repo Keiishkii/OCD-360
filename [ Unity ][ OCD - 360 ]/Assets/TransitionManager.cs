@@ -10,7 +10,7 @@ public class TransitionManager : MonoBehaviour
     public static TransitionManager Instance => _instance ? _instance : _instance = FindObjectOfType<TransitionManager>();
     #endregion
     
-    #region [ Serialised Fields 
+    #region [ Serialised Fields ]
     [SerializeField] private ExperimentTransitionUI _experimentTransitionUI;
     [SerializeField] private AnimationCurve _animationCurve;
     [SerializeField] private float _transitionDuration;

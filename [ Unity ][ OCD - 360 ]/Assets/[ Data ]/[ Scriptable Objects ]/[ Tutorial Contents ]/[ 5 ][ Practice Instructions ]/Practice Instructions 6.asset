@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 6
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "For example, in this communal living room there are several factors that
     make the space feel uninviting and frustrating to find in a communal area.\r\n\r\nTherefore,
     move your thumb to the target location on the touchpad to signal a mid-level
     negative valence and an elevated level of arousal.\r"
+  displayContinueCondition: 1
   continueCondition: Perform target <color=green>RATING</color> to continue

@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Emteq Calibration
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: 'Emteq Calibration:'
+  displayContent: 1
   content: "However, first we need to calibrate the physiological sensors within
     the headset.\r\n\r\nPlease ensure the mask fits comfortably, then click the button
     on the cinema screen to start the calibration process and follow the onscreen
     prompts.\r\n\r\nThe process will then begin with a 2-minute resting heart rate
     recording.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to start calibration

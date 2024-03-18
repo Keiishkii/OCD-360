@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 7
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: second viewpoint
+  displayContent: 1
   content: "A second viewpoint from the same indoor scene will always be shown immediately
     after the first. \r\n\r\nThe second viewpoint should be used to update your rating
     based on any new content that you can observe within the environment.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

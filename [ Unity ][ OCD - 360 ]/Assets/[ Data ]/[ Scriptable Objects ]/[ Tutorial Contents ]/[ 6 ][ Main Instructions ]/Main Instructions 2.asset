@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Main Instructions 2
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: 
+  displayContent: 1
   content: 'Each test block will take a total of 2 minutes to perform, and each block
     will be separated by a short 30 second relaxation scene.
 
@@ -27,4 +29,5 @@ MonoBehaviour:
     that we will be recording throughout the task.
 
 '
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue...

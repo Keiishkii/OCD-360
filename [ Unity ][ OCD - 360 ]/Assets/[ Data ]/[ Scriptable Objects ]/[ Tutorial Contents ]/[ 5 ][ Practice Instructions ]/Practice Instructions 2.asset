@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 2
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: outdoor scenes
+  displayContent: 1
   content: "Outdoor scenes will be used throughout the task as a baseline/rest condition.\r\n\r\nFor
     all of the scenes in this experiment we invite you to visually explore the scene
     and imagine how you would feel if you were physically there.\r"
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

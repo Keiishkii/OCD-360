@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 11
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "In the practice example, the new viewpoint of the room shows it to be
     very spacious, with soft calm lighting.\r\n\r\nTherefore, make a small adjust
     on the touchpad to signal a slightly reduced arousal rating. Whilst simultaneously
     maintaining the same positive valence rating from the previous viewpoint.\r\r\r"
+  displayContinueCondition: 1
   continueCondition: Perform target <color=green>RATING</color> to continue

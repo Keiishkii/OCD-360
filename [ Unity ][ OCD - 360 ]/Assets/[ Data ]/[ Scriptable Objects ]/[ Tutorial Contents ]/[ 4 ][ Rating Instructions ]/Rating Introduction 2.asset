@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Rating Introduction 2
   m_EditorClassIdentifier: 
+  displayTitle: 1
   title: 'How to use the controller to make valance and arousal ratings [ 2 / 2 ]:'
+  displayContent: 1
   content: 'We track 2 values from the position of your thumb.
 
 
@@ -21,4 +23,5 @@ MonoBehaviour:
 
     <color=black>Down
     - Up</color> (Y-axis) is the <color=black>AROUSAL</color>'
+  displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

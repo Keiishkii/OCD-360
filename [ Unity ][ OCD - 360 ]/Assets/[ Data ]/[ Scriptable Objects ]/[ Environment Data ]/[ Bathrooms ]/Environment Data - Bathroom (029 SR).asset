@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Environment Data - Bathroom (029 SR)
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: f3cfb521d7e9ccd47bbdfed07d0bce3f, type: 2}
-  rotationOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 358.17, y: 0, z: 2.5299985}

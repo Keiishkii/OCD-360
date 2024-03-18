@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d9277acdd482bf4ab9a77924ca4306e, type: 3}
   m_Name: Practice Instructions 8
   m_EditorClassIdentifier: 
+  displayTitle: 0
   title: ---
+  displayContent: 1
   content: "From this new viewpoint we can see that other areas within the environment
     are not as cluttered or messy.\r\n\r\nAdjust your arousal and valance ratings
     to signal a less negative valence and a reduced level of arousal.\r"
+  displayContinueCondition: 1
   continueCondition: Perform target <color=green>RATING</color> to continue
