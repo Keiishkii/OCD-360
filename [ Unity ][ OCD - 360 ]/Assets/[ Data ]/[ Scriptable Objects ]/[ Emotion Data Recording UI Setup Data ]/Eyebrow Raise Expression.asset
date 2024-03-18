@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expressionImageSprite: {fileID: 21300000, guid: 1fc87d6a9976b624b951de018402193c, type: 3}
   instructions: Now raise your eyebrows as much as you can, for 3 seconds.
-  displayName: Maximum Eyebrow Rais Expression
+  displayName: Maximum Eyebrow Raise Expression
+  expressionType: 13

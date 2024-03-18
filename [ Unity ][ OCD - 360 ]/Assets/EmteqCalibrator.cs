@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using EmteqLabs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,6 +38,8 @@ public class EmteqCalibrator : MonoBehaviour
         _largeScreenUI.HeartbeatRecordingInstructionsPanelVisible = false;
         _largeScreenUI.HeartbeatRadialTimerVisible = true;
         
+        EmteqManager.StartHeartRateBaselineCalibration();
+        
         for (float timeElapsed = 0; timeElapsed < _heartbeatRecordingDuration; timeElapsed += Time.deltaTime)
         {
             float value = Mathf.InverseLerp(0, _heartbeatRecordingDuration, timeElapsed);
@@ -44,6 +47,8 @@ public class EmteqCalibrator : MonoBehaviour
 
             yield return null;
         }
+        
+        EmteqManager.EndHeartRateBaselineCalibration();
         
         _largeScreenUI.HeartbeatRadialTimerVisible = false;
     }
@@ -58,10 +63,12 @@ public class EmteqCalibrator : MonoBehaviour
         
         for (int i = 0; i < _emotionRecordingData.Count; i++)
         {
+            EmotionRecordingDataScriptableObject emotionData = _emotionRecordingData[i];
+            
             _largeScreenUI.TimerVisible = false;
             _largeScreenUI.ExpressionRecordingInstructionsPanelVisible = true;
 
-            _largeScreenUI.DisplayExpression(_emotionRecordingData[i]);
+            _largeScreenUI.DisplayExpression(emotionData);
             
             yield return new WaitUntil(() => _triggerPressInputActionReference.action.WasPressedThisFrame());
             yield return null;
@@ -70,6 +77,8 @@ public class EmteqCalibrator : MonoBehaviour
             
             _largeScreenUI.ExpressionRecordingInstructionsPanelVisible = false;
             _largeScreenUI.TimerVisible = true;
+
+            EmteqManager.StartExpressionCalibration(emotionData.expressionType);
             
             for (float timeElapsed = 0; timeElapsed < _expressionRecordingDuration; timeElapsed += Time.deltaTime)
             {
@@ -84,6 +93,8 @@ public class EmteqCalibrator : MonoBehaviour
 
                 yield return null;
             }
+            
+            EmteqManager.EndExpressionCalibration();
             
             _largeScreenUI.ExpressionRecordingDisplayAnimator.SetTrigger(EndRecordingProperty);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EmteqLabs;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,8 +8,9 @@ using UnityEngine.Serialization;
 public class EmotionRecordingDataScriptableObject : ScriptableObject
 {
     #region [ Serialised Fields ]
-    [FormerlySerializedAs("emotionTexture")] public Sprite expressionImageSprite;
+    public Sprite expressionImageSprite;
     [TextArea] public string instructions;
     public string displayName;
+    public ExpressionType expressionType;
     #endregion
 }

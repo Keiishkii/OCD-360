@@ -15,3 +15,4 @@ MonoBehaviour:
   expressionImageSprite: {fileID: 21300000, guid: 3b18673512b41e8449867637d4d6b780, type: 3}
   instructions: Now hold your maximum frown for 3 seconds.
   displayName: Maximum Frown Expression
+  expressionType: 4

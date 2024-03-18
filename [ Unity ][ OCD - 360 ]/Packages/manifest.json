@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.emteqlabs.emteqvr": "https://github.com/emteqlabs/emteqvr-unity.git",
+    "com.emteqlabs.emteqsdk": "https://github.com/emteqlabs/emteq-sdk-unity.git",
     "com.febucci.custom-hierarchy": "https://github.com/febucci/unitypackage-custom-hierarchy.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.0.7",
