@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 1707266662751158, guid: f676e25d0fcd1ec4fa22af3017316de9, type: 3}
       propertyPath: m_Name
       value: SRanipal Eye Framework
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707266662751158, guid: f676e25d0fcd1ec4fa22af3017316de9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4879914434278830, guid: f676e25d0fcd1ec4fa22af3017316de9, type: 3}
       propertyPath: m_RootOrder
@@ -3198,7 +3202,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689683391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4324,7 +4328,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888055141}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -6297,12 +6301,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830bd902de6729d4294ab33b5f8db180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _activeEditorState: 0
+  _activeEditorState: 3
   programStateMachine:
     programStateConsentConfirmation:
       stateName: Consent Confirmation
       skipState: 0
       _consentConfirmationUIGameObject: {fileID: 1957281934}
+      _leftHandRayVisual: {fileID: 888055144}
+      _rightHandRayVisual: {fileID: 689683394}
     programStateCalibration:
       stateName: Calibration
       skipState: 0
@@ -6371,8 +6377,6 @@ MonoBehaviour:
       _blocks:
       - {fileID: 11400000, guid: f08d79d6592e84140852d4ba58e71abe, type: 2}
       - {fileID: 11400000, guid: f9c8fbcd3a35b9944b6981d74a734ad7, type: 2}
-      - {fileID: 11400000, guid: c481cc584da4bd64596d8928ea89b583, type: 2}
-      - {fileID: 11400000, guid: 0742879fd7e12ef4ba64ce0b1f1728d7, type: 2}
       _environmentHoldDuration: 20
     programStateEnd:
       stateName: 
@@ -6862,7 +6866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7746635189177623083, guid: fcfbe5e79483032408bba94ae9db2a28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9444,7 +9448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1957281935
 RectTransform:
   m_ObjectHideFlags: 0
