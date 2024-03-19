@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class FibonacciSphere : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [UnityEditor.CustomEditor(typeof(FibonacciSphere))]
     public class FibonacciSphereInspector : KeiishkiiLib.CustomInspector<FibonacciSphere>
@@ -39,6 +39,7 @@ public class FibonacciSphere : MonoBehaviour
         }
     }
     #endregion
+    #endif
 
     #region [ Serialised Fields ]
     [SerializeField] public int pointCount;

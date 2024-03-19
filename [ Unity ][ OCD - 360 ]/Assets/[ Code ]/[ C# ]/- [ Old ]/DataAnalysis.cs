@@ -1,12 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
 using KeiishkiiLib;
 using static KeiishkiiLib.InspectorUtility;
+#endif
 
 public class DataAnalysis : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [CustomEditor(typeof(DataAnalysis))]
     private class DataRecorderEditor : CustomInspector<DataAnalysis>
@@ -43,6 +45,7 @@ public class DataAnalysis : MonoBehaviour
         }
     }
     #endregion
+    #endif
 
     #region [ Serialised Field ]
     [SerializeField] private TextAsset _dataAsset;

@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class InstructionUI : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [CustomEditor(typeof(InstructionUI))]
     public class InstructionUIEditor : KeiishkiiLib.CustomInspector<InstructionUI>
@@ -22,6 +22,7 @@ public class InstructionUI : MonoBehaviour
         }
     }
     #endregion
+    #endif
     
     
     #region [ Serialised Fields ]

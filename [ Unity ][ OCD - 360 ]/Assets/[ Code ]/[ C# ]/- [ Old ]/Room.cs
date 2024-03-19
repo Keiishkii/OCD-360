@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
+#if UNITY_EDITOR
 using UnityEditor;
 using KeiishkiiLib;
 using static KeiishkiiLib.InspectorUtility;
-using System;
+#endif
 
 public class RoomController : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [CustomEditor(typeof(RoomController))]
     private class RoomEditor : CustomInspector<RoomController>
@@ -25,6 +28,7 @@ public class RoomController : MonoBehaviour
         }
     }
     #endregion
+    #endif
 
     #region [ Serialised Fields ]
     [SerializeField] private Transform _transformTransform;

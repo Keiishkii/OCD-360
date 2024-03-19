@@ -1,12 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using KeiishkiiLib;
 using static KeiishkiiLib.InspectorUtility;
-using System;
+#endif
 
 public class UnitSphereGenerator : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [UnityEditor.CustomEditor(typeof(UnitSphereGenerator))]
     public class UnitSphereGeneratorEditor : CustomInspector<UnitSphereGenerator>
@@ -26,6 +27,7 @@ public class UnitSphereGenerator : MonoBehaviour
         }
     }
     #endregion
+    #endif
 
     #region [ Serialised Fields ]
         [SerializeField] private int _pointCount;

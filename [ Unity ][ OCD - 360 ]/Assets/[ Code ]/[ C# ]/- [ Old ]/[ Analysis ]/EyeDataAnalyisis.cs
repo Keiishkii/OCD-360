@@ -1,9 +1,9 @@
+#if UNITY_EDITOR
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using System.IO;
+using UnityEditor;
 
 public class EyeDataAnalyisis : MonoBehaviour
 {
@@ -111,3 +111,4 @@ public class EyeDataAnalyisis : MonoBehaviour
         _fibonacciSphere.ColourVertices();
     }
 }
+#endif

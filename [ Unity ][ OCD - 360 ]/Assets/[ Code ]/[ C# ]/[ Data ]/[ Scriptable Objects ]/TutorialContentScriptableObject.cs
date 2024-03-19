@@ -1,9 +1,12 @@
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "Tutorial Content", menuName = "[ MINE Lab ]/Tutorial Content Data")]
 public class TutorialContentScriptableObject : ScriptableObject
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [CustomEditor(typeof(TutorialContentScriptableObject))]
     public class TutorialContentScriptableObjectEditor : KeiishkiiLib.CustomInspector<TutorialContentScriptableObject>
@@ -30,6 +33,7 @@ public class TutorialContentScriptableObject : ScriptableObject
     
 
     #endregion
+    #endif
     
     #region [ Serialised Fields ]
     public bool displayTitle;

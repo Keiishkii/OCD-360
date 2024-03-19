@@ -1,16 +1,15 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
 using KeiishkiiLib;
 using static KeiishkiiLib.InspectorUtility;
-using System.Runtime.CompilerServices;
-using System.IO;
-using UnityEditor.VersionControl;
+#endif
 
 public class DataRecorder : MonoBehaviour
 {
+    #if UNITY_EDITOR
     #region [ Editor ]
     [CustomEditor(typeof(DataRecorder))]
     private class DataRecorderEditor : CustomInspector<DataRecorder>
@@ -22,6 +21,7 @@ public class DataRecorder : MonoBehaviour
         }
     }
     #endregion
+    #endif
 
     #region [ Serialised Field ]
         [SerializeField] private Transform _cameraTransform;
