@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace MINELab
 {
@@ -8,6 +9,8 @@ namespace MINELab
     {
         #region [ Serialised Fields ]
         [SerializeField] private GameObject _consentConfirmationUIGameObject;
+        [SerializeField] private XRInteractorLineVisual _leftHandRayVisual;
+        [SerializeField] private XRInteractorLineVisual _rightHandRayVisual;
         #endregion
 
         #region [ Unserialised Fields ]
@@ -17,6 +20,9 @@ namespace MINELab
         
         public override void StateEnter()
         {
+            _leftHandRayVisual.enabled = false;
+            _rightHandRayVisual.enabled = true;
+            
             if (skipState)
             {
                 _programStateMachine.ActiveState = _programStateMachine.programStateCalibration;
@@ -26,6 +32,11 @@ namespace MINELab
             _consentConfirmationUIGameObject.SetActive(true);
         }
 
-        public override void StateExit() => _consentConfirmationUIGameObject.SetActive(false);
+        public override void StateExit()
+        {
+            _consentConfirmationUIGameObject.SetActive(false);
+            _rightHandRayVisual.enabled = false;
+            _leftHandRayVisual.enabled = false;
+        }
     }
 }
