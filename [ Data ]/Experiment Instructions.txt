@@ -1,0 +1,25 @@
+This document will describe the process needed to set up the experiment from a freshly booted PC.
+
+[ 1 ]: To begin, the Vive Pro must be connected, and the Emteq mask must be attached to the headset.
+
+[ THIS NEXT STEP MAY BE UNECISARY BUT WORTH DOING ANYWAY TO MAKE SURE THE VR IS WORKING ]
+[ 2 ]: Launch steam, in library locate search SteamVR (this may not appear in the list before searching for it due to it being a program, not a game) after which you or the particepant should now be able to see the steam VR menu screen (like a big black void with stars and mountains in the distance)
+
+[ 3 ]: To actually run the experiment from here, you will need to launch the experiments .exe file locally on the machine. Right now the folder containing this file is stored on the NAS, under "MINE Lab - Group Use/[ Builds ]/[ OCD - 360 ]". You will need the entire folder, as the exe uses the other files and subfolders to run correctly. Just drag and drop the whole "[ OCD - 360 ]" folder onto the recording machines desktop.
+
+ - If you do not know how to access the NAS from the recording / experiment machine you should potentially have a login, if not let me or Ellen know and we can just send it over email. Worse case I can walk you both through how to download the project via github and then build it yourself over call.
+
+[ 4 ]: Finally, Launch the experiments .exe file. This should put the particepant (currently in VR) in the main experiment room (this should also load a window on the PC's screen too showing the experiment and everything the particepant can see).
+
+ - From here, you can now also launch SuperVision to see the data from the EMTEQ mask, it may ask you to sign in but just contine as a guest. Doing this before launching the experiments .exe will make it throw an error saying something along the lines of "failed to connect to EMTEQ". This is normal, and just a weird thing with supervision, it HAS to have a program running that uses the EMTEQ API for it to even start showing data from the mask.
+
+[ 5 ]: After the experiment is complete, all the data will be stored locally, right now this includes .eyedata, .json and .dab files. I will also be including another .json at some point describing what happened in each block (what rotations and such) but as of now this is not yet done.
+
+These files are located in the following directories:
+
+C:\Users\MINE-1\Documents\EmteqLabs\[ OCD - 360 ]\Upload
+ - .dab
+ - .json
+
+C:\Users\MINE-1\AppData\LocalLow\MINE Lab\[ OCD - 360 ]
+ - .eyedata

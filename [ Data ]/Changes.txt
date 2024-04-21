@@ -1,24 +1,26 @@
 Changes:
 
+Charlie:
+[x] two screens (emteq screen and unity screen)
+[ ]	Height / Platform Issues:
+	[ ] beach feels scary (height problem, platform solution)
+	[ ] hight differences between scenes problem
+	[ ] in some scenes the stimuli feel too big (e.g. toilet role, door, toilet, bin) - feel small in a giant room)
+[ ] Tutorial:
+	[ ] AV values for practice scences are not correct
+	[ ] start instructions (remind about right to withdraw when too upsetting)
+	[ ] send instruction (the scriptable obejcts for the user) list as word documents and screenshots to all of us. 
+[ ] Experiment:
+	[ ] Add skip / override for Emteq sensor UI
+	[ ] perspective changing between blocks not trials
+	[ ] beach scenes after every trial (if possible)
+	[ ] transition needs to be whole screen, square shaped and trigger at the end of the square time (start of new scene)
+	[ ] triggers before every event (trial based; think with Ellen about triggernames)
+	[ ] add emteq triggers and LSL
+	[ ] data files for differnt states (room rotations, ... ) - we need to do have this post-processing
+	[x] blur out person in office
 
-Charlie - Email: keiishkii@gmail.com
-
-- two screens (emteq screen and unity screen)#
-- beach feels scary (height problem, platform solution)
-- hight differences between scenes problem
-- AV values for practice scences are not correct
-- perspective changing between blocks not trials
-- beach scenes after every trial (if possible)
-- transition needs to be whole screen, square shaped and trigger at the end of the square time (start of new scene)
-- triggers before every event (trial based; think with Ellen about triggernames)
-- add emteq triggers and LSL
-- data files for differnt states (room rotations, ... ) - we need to do have this post-processing
-- blur out person in office
-- in some scenes the stimuli feel too big (e.g. toilet role, door, toilet, bin) - feel small in a giant room)
-- start instructions (remind about right to withdraw when too upsetting)
-- send instruction list as word documents and screenshots to all of us. 
-
-Damla / Ruya
+Damla / Ruya:
 - hang cable from the ceiling
 - record new beach scenes (Ruya)
 - Damla has camera details (sent to Ruya)
@@ -29,7 +31,7 @@ Damla / Ruya
 - if u have OCD not to participate this experiment (double check it in the lab)
 - read instructions that are sent from Charlie
 
-Ellen
+Ellen:
 - bungie thingie and hook
 - longer vive cable and hook for the ceiling
 - standing throughtout scenes
