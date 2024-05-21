@@ -15,10 +15,11 @@ MonoBehaviour:
   displayTitle: 1
   title: 'Study Introduction [ 1 / 2 ]:'
   displayContent: 1
-  content: "In the main part of this study you will be shown images of communal kitchens
-    and bathrooms, on the cinema screen in front of you. \n\nFor each image you will
-    be required to make a rating based upon how positive/negative you would feel
-    within this environment \n(i.e. a valence rating). \r\n\nAs well as how anxious/relaxed
-    you would feel within this environment (i.e. an arousal rating).\r"
+  content: "In the main part of this study, you will be shown images of communal
+    kitchens and bathrooms, on the cinema screen in front of you. \r\n\r\nFor each
+    image you will be required to make a rating based upon how positive/negative
+    you would feel within this environment \r\n(i.e. a valence rating). \r\n\r\nAs
+    well as how anxious/relaxed you would feel within this environment (i.e. an arousal
+    rating).\r"
   displayContinueCondition: 1
   continueCondition: Pull the <color=green>TRIGGER</color> to continue

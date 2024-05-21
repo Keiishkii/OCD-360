@@ -26,12 +26,24 @@ public class InstructionUI : MonoBehaviour
     
     
     #region [ Serialised Fields ]
+    [SerializeField] private GameObject _canvasGameObject;
     [SerializeField] private TMP_Text _titleField;
     [SerializeField] private TMP_Text _contentField;
     [SerializeField] private TMP_Text _continueConditionField;
     #endregion
 
     #region [ Unserialised Feilds ]
+    public bool Visible
+    {
+        get => _visible;
+        set
+        {
+            _canvasGameObject.SetActive(value);
+            _visible = value;
+        }
+    }
+    private bool _visible;
+    
     private Transform _transform;
     private Vector3 _basePosition;
     private Quaternion _baseRotation;

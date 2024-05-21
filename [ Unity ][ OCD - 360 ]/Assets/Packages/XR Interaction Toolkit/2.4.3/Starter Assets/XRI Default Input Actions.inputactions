@@ -2221,18 +2221,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "[ Editor Rating Skip ]",
+                    "name": "Touch Pad Conformation",
                     "type": "Button",
-                    "id": "85faed06-f2c2-4a78-808c-c27e699072a2",
+                    "id": "d224976d-1c30-4220-848e-08715eeaa917",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Touch Pad Conformation",
+                    "name": "[ Editor Rating Skip ]",
                     "type": "Button",
-                    "id": "d224976d-1c30-4220-848e-08715eeaa917",
+                    "id": "85faed06-f2c2-4a78-808c-c27e699072a2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -2270,6 +2270,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Trigger Conformation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0d4c278-d796-4bb0-8e43-60ba43fbf1a7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "[ Editor Rating Skip ]",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e45ca324-6b7c-4702-9cbb-8c1f25de0c30",
+                    "path": "<XRController>{RightHand}/touchpadClick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Pad Conformation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b185d522-b707-45ba-b26d-fba28070be6a",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Pad Conformation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efd018fb-3142-43b9-b394-e87138e2d74d",
+                    "path": "<ViveController>{RightHand}/trackpadClicked",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Pad Conformation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -2341,34 +2385,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a0d4c278-d796-4bb0-8e43-60ba43fbf1a7",
-                    "path": "<Keyboard>/r",
+                    "id": "bcdd2247-14ee-4164-b3cb-f4e3c1c190bb",
+                    "path": "<ViveController>{RightHand}/trackpad",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "[ Editor Rating Skip ]",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e45ca324-6b7c-4702-9cbb-8c1f25de0c30",
-                    "path": "<XRController>{RightHand}/touchpadClick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch Pad Conformation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b185d522-b707-45ba-b26d-fba28070be6a",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch Pad Conformation",
+                    "action": "Right Joystick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

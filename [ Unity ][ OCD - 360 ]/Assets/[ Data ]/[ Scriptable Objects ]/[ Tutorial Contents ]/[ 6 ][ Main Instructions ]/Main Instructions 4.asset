@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Main Instructions 4
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: ready to start the main task
+  title: ready to start the main task?
   displayContent: 1
-  content: Please inform the research team that you are about to start the main task
-    and await confirmation from the team before proceeding.
+  content: "\rPlease inform the research team that you are about to start the main
+    task and await confirmation from the team before proceeding.\r\n\r\nYou still
+    have the right to withdraw now, and at any point during the experiment. Should
+    you wish to stop the experiment and withdraw, just take the headset off, and
+    inform the researcher.\r"
   displayContinueCondition: 1
-  continueCondition: Then pull the <color=green>TRIGGER</color> to start the main
-    task
+  continueCondition: Pull the <color=green>TRIGGER</color> to begin the experiment

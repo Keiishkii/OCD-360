@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Object = UnityEngine.Object;
 
 namespace MINELab
 {
@@ -10,56 +9,14 @@ namespace MINELab
     public class ProgramStateTutorial : ProgramStateInterface
     {
         #region [ Serialised Fields ]
-        [SerializeField] private GameObject _instructionUIGameObject;
-        [SerializeField] private GameObject _affectScaleUIGameObject;
-        [SerializeField] private InputActionReference _triggerPressInputActionReference;
-        [SerializeField] private InputActionReference _touchPadPressInputActionReference;
-        [SerializeField] private InputActionReference _editorRatingSkipInputActionReference;
-        [SerializeField] private InputActionReference _rightJoystickInputActionReference;
-
-        [SerializeField] private float _offsetLeneancy = 0;
-        
-        [SerializeField] private TutorialContentScriptableObject _ratingInstruction1PanelData;
-        [SerializeField] private TutorialContentScriptableObject _ratingInstruction2PanelData;
-        [SerializeField] private TutorialContentScriptableObject _ratingInstruction3PanelData;
-        [SerializeField] private TutorialContentScriptableObject _ratingInstruction4PanelData;
-        [SerializeField] private TutorialContentScriptableObject _ratingInstruction5PanelData;
-        
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction1PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction2PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction3PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction4PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction5PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction6PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction7PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction8PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction9PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction10PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction11PanelData;
-        [SerializeField] private TutorialContentScriptableObject _practiceInstruction12PanelData;
-        
-        [SerializeField] private TutorialContentScriptableObject _mainInstructions1PanelData;
-        [SerializeField] private TutorialContentScriptableObject _mainInstructions2PanelData;
-        [SerializeField] private TutorialContentScriptableObject _mainInstructions3PanelData;
-        [SerializeField] private TutorialContentScriptableObject _mainInstructions4PanelData;
-        
-        [SerializeField] private Trial _enviroment1Data;
-        [SerializeField] private Trial _enviroment2Data;
-        [SerializeField] private Trial _enviroment3Data;
-        [SerializeField] private Trial _enviroment4Data;
-        [SerializeField] private Trial _enviroment5Data;
-        
-        [SerializeField] private Vector2 _tutorial1InputTarget;
-        [SerializeField] private Vector2 _tutorial2InputTarget;
-        [SerializeField] private Vector2 _tutorial3InputTarget;
-        [SerializeField] private Vector2 _tutorial4InputTarget;
-        [SerializeField] private Vector2 _tutorial5InputTarget;
-        [SerializeField] private Vector2 _tutorial6InputTarget;
-        
+        [SerializeField] private TutorialUIContentManager tutorialUIContentManager = new ();
+        [SerializeField] private TutorialEnvironmentContentManager tutorialEnvironmentContentManager = new ();
+        [SerializeField] private TutorialRatingInputManager tutorialRatingManager = new ();
         #endregion
 
         #region [ Unserialised Fields ]
         private InstructionUI _instructionUI;
+        private AffectScale _affectScale;
         private IEnumerator _welcomeDisplayCoroutine;
         #endregion
 
@@ -68,16 +25,19 @@ namespace MINELab
         {
             base.StateInitialisation(programManager);
             
-            _instructionUI = _instructionUIGameObject.GetComponent<InstructionUI>();
+            _instructionUI = Object.FindObjectOfType<InstructionUI>();
+            _affectScale = Object.FindObjectOfType<AffectScale>();
         }
 
         public override void StateEnter()
         {
+            #if UNITY_EDITOR
             if (skipState)
             {
                 _programStateMachine.ActiveState = _programStateMachine.programStateExperiment;
                 return;
             }
+            #endif
 
             _programManager.StartCoroutine(DisplayTutorial());
         }
@@ -88,242 +48,175 @@ namespace MINELab
             do
             {
                 // Rating Instructions
-
                 #region [ Rating Instructions 1 ]
-
-                _instructionUIGameObject.SetActive(true);
+                _instructionUI.Visible = true;
                 _instructionUI.SetPanelPosition(Vector3.forward);
-                _instructionUI.SetPanelContent(_ratingInstruction1PanelData);
-                yield return WaitForTriggerPress();
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 1 ][ Rating Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
-
+                
                 #region [ Rating Instructions 2 ]
-
-                _instructionUI.SetPanelContent(_ratingInstruction2PanelData);
-                yield return WaitForTriggerPress();
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 2 ][ Rating Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 #region [ Rating Instructions 3 ]
-
-                _instructionUI.SetPanelContent(_ratingInstruction3PanelData);
-                yield return WaitForTriggerPress();
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 3 ][ Rating Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 #region [ Rating Instructions 4 ]
-
-                _instructionUI.SetPanelContent(_ratingInstruction4PanelData);
-                yield return WaitForTriggerPress();
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 4 ][ Rating Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 #region [ Rating Instructions 5 ]
-
-                _affectScaleUIGameObject.SetActive(true);
-                _instructionUI.SetPanelContent(_ratingInstruction5PanelData);
-                yield return WaitForTriggerPress();
-
+                _affectScale.Visible = true;
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 5 ][ Rating Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 // Practice Instructions
-
                 #region [ Practice Instructions 1 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction1PanelData);
-                yield return WaitForTriggerPress();
-                _instructionUIGameObject.SetActive(false);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 1 ][ Practice Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 2 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction2PanelData);
-                    EnvironmentManager.Instance.SetEnvironment(_enviroment1Data.environmentMaterial, _enviroment1Data.environmentYRotationOffset);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 2 ][ Practice Instructions ]"));
+                    EnvironmentManager.Instance.SetEnvironment(tutorialEnvironmentContentManager.Content("[ Beach ][ 0 ]"));
                 });
-                yield return WaitForTriggerPress();
-
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 #region [ Practice Instructions 3 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction3PanelData);
-                yield return WaitForJoystickInput(_tutorial1InputTarget);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 3 ][ Practice Instructions ]"));
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 1 ][ Rating ]"));
                 #endregion
 
                 #region [ Practice Instructions 4 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction4PanelData);
-                yield return WaitForJoystickInput(_tutorial2InputTarget);
-                _instructionUIGameObject.SetActive(false);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 4 ][ Practice Instructions ]"));
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 2 ][ Rating ]"));
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 5 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction5PanelData);
-                    EnvironmentManager.Instance.SetEnvironment(_enviroment2Data.environmentMaterial, _enviroment2Data.environmentYRotationOffset);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 5 ][ Practice Instructions ]"));
+                    EnvironmentManager.Instance.SetEnvironment(tutorialEnvironmentContentManager.Content("[ Living Room ][ 0 ]"));
                 });
-                yield return WaitForTriggerPress();
-
+                yield return InputManager.Instance.WaitForTriggerPress();
                 #endregion
 
                 #region [ Practice Instructions 6 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction6PanelData);
-                yield return WaitForJoystickInput(_tutorial3InputTarget);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 6 ][ Practice Instructions ]"));
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 3 ][ Rating ]"));
                 #endregion
 
                 #region [ Practice Instructions 7 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction7PanelData);
-                yield return WaitForTriggerPress();
-                _instructionUIGameObject.SetActive(false);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 7 ][ Practice Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 8 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction8PanelData);
-                    EnvironmentManager.Instance.SetEnvironment(_enviroment3Data.environmentMaterial, _enviroment3Data.environmentYRotationOffset);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 8 ][ Practice Instructions ]"));
+                    EnvironmentManager.Instance.SetEnvironment(tutorialEnvironmentContentManager.Content("[ Living Room ][ 180 ]"));
                 });
-                yield return WaitForJoystickInput(_tutorial4InputTarget);
-                _instructionUIGameObject.SetActive(false);
-
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 4 ][ Rating ]"));
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 9 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction9PanelData);
-                    EnvironmentManager.Instance.SetEnvironment(_enviroment4Data.environmentMaterial, _enviroment4Data.environmentYRotationOffset);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 9 ][ Practice Instructions ]"));
+                    EnvironmentManager.Instance.SetEnvironment(tutorialEnvironmentContentManager.Content("[ Office ][ 0 ]"));
                 });
-                yield return WaitForJoystickInput(_tutorial5InputTarget);
-
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 5 ][ Rating ]"));
                 #endregion
 
                 #region [ Practice Instructions 10 ]
-
-                _instructionUI.SetPanelContent(_practiceInstruction10PanelData);
-                yield return WaitForTriggerPress();
-                _instructionUIGameObject.SetActive(false);
-
+                _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 10 ][ Practice Instructions ]"));
+                yield return InputManager.Instance.WaitForTriggerPress();
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 11 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction11PanelData);
-                    EnvironmentManager.Instance.SetEnvironment(_enviroment5Data.environmentMaterial, _enviroment5Data.environmentYRotationOffset);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 11 ][ Practice Instructions ]"));
+                    EnvironmentManager.Instance.SetEnvironment(tutorialEnvironmentContentManager.Content("[ Office ][ 180 ]"));
                 });
-                yield return WaitForJoystickInput(_tutorial5InputTarget);
-                _instructionUIGameObject.SetActive(false);
-
+                yield return WaitForJoystickInput(tutorialRatingManager.Content("[ 6 ][ Rating ]"));
+                _instructionUI.Visible = false;
                 #endregion
 
                 #region [ Practice Instructions 12 ]
-
                 yield return TransitionManager.Instance.TransitionEnvironmentsCoroutine(() =>
                 {
-                    _instructionUIGameObject.SetActive(true);
-                    // Rotate canvas to face player?
-                    _instructionUI.SetPanelContent(_practiceInstruction12PanelData);
-                    _affectScaleUIGameObject.SetActive(false);
+                    _instructionUI.Visible = true;
+                    _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 12 ][ Practice Instructions ]"));
+                    _affectScale.Visible = false;
                     EnvironmentManager.Instance.Return();
                 });
-                yield return WaitForChoice((choice) =>
+                
+                yield return InputManager.Instance.WaitForChoice((choice) =>
                 {
                     loop = (choice != InputChoice.Trigger);
                 });
                 #endregion
+                
             } while (loop);
 
             // Main Instructions
-
             #region [ Main Instructions 1 ]
-            _instructionUI.SetPanelContent(_mainInstructions1PanelData);
-            yield return WaitForTriggerPress();
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 1 ][ Main Instructions ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
             #endregion
             
             #region [ Main Instructions 2 ]
-            _instructionUI.SetPanelContent(_mainInstructions2PanelData);
-            yield return WaitForTriggerPress();
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 2 ][ Main Instructions ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
             #endregion
             
             #region [ Main Instructions 3 ]
-            _instructionUI.SetPanelContent(_mainInstructions3PanelData);
-            yield return WaitForTriggerPress();
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 3 ][ Main Instructions ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
             #endregion
             
             #region [ Main Instructions 4 ]
-            _instructionUI.SetPanelContent(_mainInstructions4PanelData);
-            yield return WaitForTriggerPress();
-            _instructionUIGameObject.SetActive(false);
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 4 ][ Main Instructions ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
+            _instructionUI.Visible = false;
             #endregion    
             
             _programStateMachine.ActiveState = _programStateMachine.programStateExperiment;
         }
 
-        private IEnumerator WaitForChoice(Action<InputChoice> callback)
-        {
-            InputChoice choice = InputChoice.None;
-            yield return new WaitUntil(() =>
-            {
-                if (_triggerPressInputActionReference.action.WasPressedThisFrame())
-                {
-                    choice = InputChoice.Trigger;
-                    return true;
-                }
-                
-                if (_touchPadPressInputActionReference.action.WasPressedThisFrame())
-                {
-                    choice = InputChoice.TouchPad;
-                    return true;
-                }
-                
-                return false;
-            });
-            yield return null;
-            callback(choice);
-        }
-        
-        private IEnumerator WaitForTriggerPress()
-        {
-            yield return new WaitUntil(() => _triggerPressInputActionReference.action.WasPressedThisFrame());
-            yield return null;
-        }
-
         private IEnumerator WaitForJoystickInput(Vector2 target)
         {
+            float squareLeniency = tutorialRatingManager.offsetLeniency * tutorialRatingManager.offsetLeniency;
+
             AffectScale.Instance.SetTargetPosition(target);
             AffectScale.Instance.SetTargetVisible(true);
             yield return new WaitUntil(() =>
             {
-                if (_editorRatingSkipInputActionReference.action.WasPressedThisFrame()) return true; 
-                Vector2 value = _rightJoystickInputActionReference.action.ReadValue<Vector2>();
-
-                return (Vector3.SqrMagnitude(target - value) < _offsetLeneancy * _offsetLeneancy);
+                if (InputManager.Instance.ratingSkip.action.WasPressedThisFrame()) return true;
+                
+                Vector2 value = InputManager.Instance.rightJoystick.action.ReadValue<Vector2>();
+                return (Vector3.SqrMagnitude(target - value) < squareLeniency);
             });
             AffectScale.Instance.SetTargetVisible(false);
             yield return null;

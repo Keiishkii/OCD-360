@@ -13,19 +13,17 @@ public class TutorialContentScriptableObject : ScriptableObject
     {
         protected override void OnInspectorRender()
         {
-            bool previousWordWrapSetting = EditorStyles.textField.wordWrap;
             EditorStyles.textField.wordWrap = true;
             KeiishkiiLib.InspectorUtility.BooleanField("Display Title:", ref _targetScript.displayTitle);
-            if (_targetScript.displayTitle) EditorGUILayout.TextArea(_targetScript.title);
+            if (_targetScript.displayTitle) _targetScript.title = EditorGUILayout.TextArea(_targetScript.title);
             
             KeiishkiiLib.InspectorUtility.Separator();
             KeiishkiiLib.InspectorUtility.BooleanField("Display Content:", ref _targetScript.displayContent);
-            if (_targetScript.displayContent) EditorGUILayout.TextArea(_targetScript.content);
+            if (_targetScript.displayContent) _targetScript.content = EditorGUILayout.TextArea(_targetScript.content);
             
             KeiishkiiLib.InspectorUtility.Separator();
             KeiishkiiLib.InspectorUtility.BooleanField("Display Continue Condition:", ref _targetScript.displayContinueCondition);
-            if (_targetScript.displayContinueCondition) EditorGUILayout.TextArea(_targetScript.continueCondition);
-            EditorStyles.textField.wordWrap = previousWordWrapSetting;
+            if (_targetScript.displayContinueCondition) _targetScript.continueCondition = EditorGUILayout.TextArea(_targetScript.continueCondition);
             
             EditorUtility.SetDirty(_targetScript);
         }
@@ -39,7 +37,7 @@ public class TutorialContentScriptableObject : ScriptableObject
     public bool displayTitle;
     [TextArea(1,10000)] public string title;
     public bool displayContent;
-    [TextArea(3,10000)] public string content;
+    [TextArea(8,10000)] public string content;
     public bool displayContinueCondition;
     [TextArea(1,10000)] public string continueCondition;
     #endregion

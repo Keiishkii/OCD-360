@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace MINELab
 {
@@ -7,7 +8,7 @@ namespace MINELab
     {
         #region [ Serialised Fields ]
         public string stateName;
-        public bool skipState = false;
+        [HideInInspector] public bool skipState = false;
         #endregion
 
         #region [ Unserialised Fields ]

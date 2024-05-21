@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MINELab;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,17 +13,27 @@ public class AffectScale : MonoBehaviour
     #endregion
     
     #region [ Serialised Fields ]
-    [SerializeField] private InputActionReference _rightJoystickInputActionReference;
+    [SerializeField] private GameObject _canvasGameObject;
     [SerializeField] private GameObject _cursor;
     [SerializeField] private GameObject _target;
     [SerializeField] private float _offsetMultiplier;
+    [SerializeField] private float _gizmosSize;
     #endregion
     
     #region [ Unserialised Fields ]
     private RectTransform _cursorTransform;
     private RectTransform _targetTransform;
 
-    public Vector2 Value { get; private set; }
+    public bool Visible
+    {
+        get => _visible;
+        set
+        {
+            _canvasGameObject.SetActive(value);
+            _visible = value;
+        }
+    }
+    private bool _visible;
     #endregion
 
     
@@ -37,38 +48,31 @@ public class AffectScale : MonoBehaviour
 
     private void OnEnable()
     {
-        _rightJoystickInputActionReference.action.performed += OnRightJoystickInputPerformed;
-        _rightJoystickInputActionReference.action.canceled += OnRightJoystickInputCancelled;
-        
+        InputManager.Instance.rightJoystickValueChangedEvent.AddListener(SetCursorPosition);
         SetCursorPosition(Vector2.zero);
     }
     
     private void OnDisable()
     {
-        _rightJoystickInputActionReference.action.performed -= OnRightJoystickInputPerformed;
-        _rightJoystickInputActionReference.action.canceled -= OnRightJoystickInputCancelled;
+        if (InputManager.Instance is not { }) return;
+        InputManager.Instance.rightJoystickValueChangedEvent.RemoveListener(SetCursorPosition);
     }
+
     
     
-    
-    private void SetCursorPosition(Vector2 position) => _cursorTransform.localPosition = _offsetMultiplier * position;
+    private void SetCursorPosition(Vector2 position)
+    {
+        _cursorTransform.localPosition = _offsetMultiplier * position;
+        Debug.Log($"Position: {position}");
+    }
+
     public void SetTargetPosition(Vector2 position) => _targetTransform.localPosition = _offsetMultiplier * position;
     public void SetTargetVisible(bool visibility) => _target.SetActive(visibility);
-    
-    
-    
-    private void OnRightJoystickInputPerformed(InputAction.CallbackContext context)
+
+    private void OnDrawGizmos()
     {
-        Value = context.ReadValue<Vector2>();
-        SetCursorPosition(Value);
-        
-        Debug.Log($"Performed: {Value}");
-    }
-    
-    private void OnRightJoystickInputCancelled(InputAction.CallbackContext context)
-    {
-        Value = Vector2.zero;
-        SetCursorPosition(Vector2.zero);
-        Debug.Log($"Cancelled: {Value}");
+        if (!Application.isPlaying) return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(_targetTransform.position, _gizmosSize);
     }
 }

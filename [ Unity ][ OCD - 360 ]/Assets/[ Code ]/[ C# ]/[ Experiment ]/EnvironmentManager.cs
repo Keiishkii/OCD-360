@@ -11,8 +11,9 @@ public class EnvironmentManager : MonoBehaviour
     #endregion
     
     #region [ Serialised Fields ]
-    [SerializeField] private List<GameObject> _experimentRoom;
-    
+    [SerializeField] private List<GameObject> _experimentRoomGameObjects;
+    [SerializeField] private List<GameObject> _360EnvironmentGameObjects;
+    [SerializeField] private GameObject _experimentPlatform;
     [SerializeField] private GameObject _360EnvironmentSphere;
     [SerializeField] private GameObject _360EnvironmentSphereMesh;
     [SerializeField] private Transform _cameraTransform;
@@ -31,10 +32,13 @@ public class EnvironmentManager : MonoBehaviour
         _360SphereMeshRenderer = _360EnvironmentSphereMesh.GetComponent<MeshRenderer>();
     }
 
+    public void SetEnvironment((EnvironmentDataScriptableObject, float) data) => SetEnvironment(data.Item1, data.Item2);
+    
     public void SetEnvironment(EnvironmentDataScriptableObject environmentData, float yRotationOffset)
     {
-        foreach (GameObject gameObject in _experimentRoom) gameObject.SetActive(false);
-        _360EnvironmentSphere.SetActive(true);
+        foreach (GameObject gameObject in _experimentRoomGameObjects) gameObject.SetActive(false);
+        foreach (GameObject gameObject in _360EnvironmentGameObjects) gameObject.SetActive(true);
+        _experimentPlatform.SetActive(environmentData.renderPlatform);
 
         Quaternion lookRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(_cameraTransform.transform.forward, Vector3.up));
         
@@ -44,7 +48,8 @@ public class EnvironmentManager : MonoBehaviour
 
     public void Return()
     {
-        foreach (GameObject gameObject in _experimentRoom) gameObject.SetActive(true);
-        _360EnvironmentSphere.SetActive(false);
+        foreach (GameObject gameObject in _experimentRoomGameObjects) gameObject.SetActive(true);
+        foreach (GameObject gameObject in _360EnvironmentGameObjects) gameObject.SetActive(false);
+        _experimentPlatform.SetActive(false);
     }
 }

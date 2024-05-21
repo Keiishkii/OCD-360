@@ -7,11 +7,32 @@ using UnityEngine.UI;
 public class ConsentConfirmationUI : MonoBehaviour
 {
     #region [ Serialised Fields ]
+    [SerializeField] private GameObject _canvasGameObject;
     [SerializeField] private Button _startButton;
-    [SerializeField] private InputActionReference _triggerPressInputActionReference;
     #endregion
     
     #region [ Unserialised Fields ]
+    public bool Visible
+    {
+        get => _visible;
+        set
+        {
+            _canvasGameObject.SetActive(value);
+            _visible = value;
+
+            if (value)
+            {
+                _startButton.onClick.AddListener(OnStartButtonPressed);
+                InputManager.Instance.triggerPress.action.performed += OnStartButtonPressed;
+            }
+            else
+            {
+                _startButton.onClick.RemoveListener(OnStartButtonPressed);
+                InputManager.Instance.triggerPress.action.performed -= OnStartButtonPressed;
+            }
+        }
+    }
+    private bool _visible;
     private ProgramManager _programManager;
     #endregion
 
@@ -19,22 +40,8 @@ public class ConsentConfirmationUI : MonoBehaviour
 
     private void Awake() => _programManager = FindObjectOfType<ProgramManager>();
 
-    private void OnEnable()
-    {
-        _startButton.onClick.AddListener(OnStartButtonPressed);
-        _triggerPressInputActionReference.action.performed += OnStartButtonPressed;
-    }
 
-    private void OnDisable()
-    {
-        _startButton.onClick.RemoveListener(OnStartButtonPressed);
-        _triggerPressInputActionReference.action.performed -= OnStartButtonPressed;
-    }
 
-    private void OnStartButtonPressed(InputAction.CallbackContext callback) => OnStartButtonPressed();
-    private void OnStartButtonPressed()
-    {
-        Debug.Log("Test");
-        _programManager.programStateMachine.ActiveState = _programManager.programStateMachine.programStateCalibration;
-    }
+    private void OnStartButtonPressed(InputAction.CallbackContext obj) => OnStartButtonPressed();
+    private void OnStartButtonPressed() => _programManager.programStateMachine.ActiveState = _programManager.programStateMachine.programStateCalibration;
 }

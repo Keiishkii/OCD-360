@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Practice Instructions 2
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: outdoor scenes
+  title: 'outdoor scenes:'
   displayContent: 1
   content: "Outdoor scenes will be used throughout the task as a baseline/rest condition.\r\n\r\nFor
     all of the scenes in this experiment we invite you to visually explore the scene

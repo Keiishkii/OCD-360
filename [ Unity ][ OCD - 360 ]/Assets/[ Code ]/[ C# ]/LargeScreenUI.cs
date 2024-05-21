@@ -33,7 +33,6 @@ public class LargeScreenUI : MonoBehaviour
     #endregion
 
     #region [ Unserialised Fields ]
-    private bool _displayActive = false;
     private IEnumerator _displayActivationCoroutine;
     public bool DisplayActive
     {
@@ -45,6 +44,7 @@ public class LargeScreenUI : MonoBehaviour
             StartCoroutine(_displayActivationCoroutine = BackgroundColourTransition(value));
         }
     }
+    private bool _displayActive = false;
 
     public bool HeartbeatRecordingInstructionsPanelVisible { set => _heartbeatRecordingInstructionsPanel.SetActive(value); }
     public bool HeartbeatRadialTimerVisible { set => _heartbeatRadialTimerPanel.SetActive(value); }

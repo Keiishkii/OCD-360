@@ -17,6 +17,28 @@ namespace MINELab
         {
             public override void OnInspectorGUI()
             {
+                KeiishkiiLib.InspectorUtility.HorizontalScope(() =>
+                {
+                    Color defaultColour = GUI.backgroundColor;
+                    
+                    GUI.backgroundColor = (_targetScript.programStateMachine.programStateConsentConfirmation.skipState) ? _targetScript._inactiveStates : _targetScript._activeStates;
+                    KeiishkiiLib.InspectorUtility.Button("Consent Confirmation", true, () => { _targetScript.programStateMachine.programStateConsentConfirmation.skipState = !_targetScript.programStateMachine.programStateConsentConfirmation.skipState;});
+                    
+                    GUI.backgroundColor = (_targetScript.programStateMachine.programStateCalibration.skipState) ? _targetScript._inactiveStates : _targetScript._activeStates;
+                    KeiishkiiLib.InspectorUtility.Button("Calibration", true, () => { _targetScript.programStateMachine.programStateCalibration.skipState = !_targetScript.programStateMachine.programStateCalibration.skipState;});
+                    
+                    GUI.backgroundColor = (_targetScript.programStateMachine.programStateTutorial.skipState) ? _targetScript._inactiveStates : _targetScript._activeStates;
+                    KeiishkiiLib.InspectorUtility.Button("Tutorial", true, () => { _targetScript.programStateMachine.programStateTutorial.skipState = !_targetScript.programStateMachine.programStateTutorial.skipState;});
+                    
+                    GUI.backgroundColor = (_targetScript.programStateMachine.programStateExperiment.skipState) ? _targetScript._inactiveStates : _targetScript._activeStates;
+                    KeiishkiiLib.InspectorUtility.Button("Experiment", true, () => { _targetScript.programStateMachine.programStateExperiment.skipState = !_targetScript.programStateMachine.programStateExperiment.skipState;}); 
+                    
+                    GUI.backgroundColor = (_targetScript.programStateMachine.programStateEnd.skipState) ? _targetScript._inactiveStates : _targetScript._activeStates;
+                    KeiishkiiLib.InspectorUtility.Button("End", true, () => { _targetScript.programStateMachine.programStateEnd.skipState = !_targetScript.programStateMachine.programStateEnd.skipState;}); 
+                    
+                    GUI.backgroundColor = defaultColour;
+                });
+                
                 bool stateChanged = KeiishkiiLib.InspectorUtility.ChangeCheck(() =>
                     _targetScript._activeEditorState = (StateEnum)EditorGUILayout.EnumPopup("State:", _targetScript._activeEditorState));
                 
@@ -43,6 +65,8 @@ namespace MINELab
         
         #region [ Serialsed Fields ]
         public ProgramStateMachine programStateMachine = new ();
+        [SerializeField] private Color _activeStates;
+        [SerializeField] private Color _inactiveStates;
         #endregion
 
         private void Start() => programStateMachine.Initialise(this);

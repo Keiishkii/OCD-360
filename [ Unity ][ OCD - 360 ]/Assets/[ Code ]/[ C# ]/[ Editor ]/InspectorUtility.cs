@@ -25,6 +25,11 @@ namespace KeiishkiiLib
                 if ((visibleInEditMode || Application.isPlaying) && GUILayout.Button(buttonName)) action.Invoke();
             }
             
+            public static void Button(in string buttonName, in GUIStyle style, in bool visibleInEditMode, in Action action)
+            {
+                if ((visibleInEditMode || Application.isPlaying) && GUILayout.Button(buttonName, style)) action.Invoke();
+            }
+            
             public static void Foldout(in string foldoutName, ref bool foldoutState, in Action action)
             {
                 foldoutState = EditorGUILayout.Foldout(foldoutState, foldoutName);
@@ -38,6 +43,17 @@ namespace KeiishkiiLib
 
         #region Fields
         // - - -
+        
+            public static void TextField(in string stringName, ref string stringReference)
+            {
+                stringReference = EditorGUILayout.TextField(stringName, stringReference);
+            }
+        
+            public static void TextArea(in string stringName, ref string stringReference)
+            {
+                stringReference = EditorGUILayout.TextArea(stringName, stringReference);
+            }
+            
             public static void IntField(in string intName, ref int intReference)
             {
                 intReference = EditorGUILayout.IntField(intName, intReference);

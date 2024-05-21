@@ -11,77 +11,93 @@ namespace MINELab
     public class ProgramStateCalibration : ProgramStateInterface
     {
         #region [ Serialised Fields ]
-        [SerializeField] private GameObject _instructionUIGameObject;
-        [SerializeField] private InputActionReference _triggerPressInputActionReference;
-        
-        [SerializeField] private TutorialContentScriptableObject _welcomePanelData;
-        [SerializeField] private TutorialContentScriptableObject _studyIntroduction1PanelData;
-        [SerializeField] private TutorialContentScriptableObject _studyIntroduction2PanelData;
-        [SerializeField] private TutorialContentScriptableObject _emteqCalibrationPanelData;
+        [SerializeField] private TutorialUIContentManager tutorialUIContentManager = new ();
         #endregion
 
         #region [ Unserialised Fields ]
         private EmteqCalibrator _emteqCalibrator;
         private LargeScreenUI _largeScreenUI;
-        
+        private DisplayController _displayController;
         private InstructionUI _instructionUI;
-        private IEnumerator _welcomeDisplayCoroutine;
         #endregion
 
-
+        
+        
         public override void StateInitialisation(ProgramManager programManager)
         {
             base.StateInitialisation(programManager);
 
             _emteqCalibrator = Object.FindObjectOfType<EmteqCalibrator>();
+            _displayController = Object.FindObjectOfType<DisplayController>();
             _largeScreenUI = Object.FindObjectOfType<LargeScreenUI>();
-            _instructionUI = _instructionUIGameObject.GetComponent<InstructionUI>();
+            _instructionUI = Object.FindObjectOfType<InstructionUI>();
         }
 
         public override void StateEnter()
         {        
+            #if UNITY_EDITOR
             if (skipState)
             {
                 _programStateMachine.ActiveState = _programStateMachine.programStateTutorial;
                 return;
             }
+            #endif
             
             _programManager.StartCoroutine(DisplayWelcomePanels());
         }
 
         private IEnumerator DisplayWelcomePanels()
         {
-            _instructionUIGameObject.SetActive(true);
+            _instructionUI.Visible = true;
             _instructionUI.SetPanelPosition(Vector3.forward);
+            /*
+            #region [ Introduction 1 ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 1 ][ Introduction ]"));
+            _displayController.Visible = true;
+            _displayController.HighlightTrigger();
+            yield return null;
+            yield return InputManager.Instance.WaitForTriggerPress();
+            #endregion
             
-            _instructionUI.SetPanelContent(_welcomePanelData);
-            yield return WaitForTriggerPress();
+            #region [ Introduction 2 ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 2 ][ Introduction ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
+            #endregion
             
-            _instructionUI.SetPanelContent(_studyIntroduction1PanelData);
-            yield return WaitForTriggerPress();
+            #region [ Introduction 3 ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 3 ][ Introduction ]"));
+            _displayController.HighlightTouchPad();
+            yield return InputManager.Instance.WaitForTouchpadPress();
+            #endregion
+            */
+
+            _displayController.Visible = false;
+            _displayController.ResetHighlight();
             
-            _instructionUI.SetPanelContent(_studyIntroduction2PanelData);
-            yield return WaitForTriggerPress();
+            #region [ Study Introduction 1 ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 1 ][ Study Introduction ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
+            #endregion
             
-            _instructionUI.SetPanelContent(_emteqCalibrationPanelData);
-            yield return WaitForTriggerPress();
+            #region [ Study Introduction 2 ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ 2 ][ Study Introduction ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
+            #endregion
             
-            _instructionUIGameObject.SetActive(false);
+            #region [ Emteq Calibration ]
+            _instructionUI.SetPanelContent(tutorialUIContentManager.Content("[ Emteq Calibration ]"));
+            yield return InputManager.Instance.WaitForTriggerPress();
+            #endregion
             
-            
+            _instructionUI.Visible = false;
             _largeScreenUI.DisplayActive = true;
+            
             yield return _programManager.StartCoroutine(_emteqCalibrator.RecordHeartbeatBaseline());
             yield return _programManager.StartCoroutine(_emteqCalibrator.RecordExpressions());
             _largeScreenUI.DisplayActive = false;
             
             
             _programStateMachine.ActiveState = _programStateMachine.programStateTutorial;
-        }
-
-        private IEnumerator WaitForTriggerPress()
-        {
-            yield return new WaitUntil(() => _triggerPressInputActionReference.action.WasPressedThisFrame());
-            yield return null;
         }
     }
 }

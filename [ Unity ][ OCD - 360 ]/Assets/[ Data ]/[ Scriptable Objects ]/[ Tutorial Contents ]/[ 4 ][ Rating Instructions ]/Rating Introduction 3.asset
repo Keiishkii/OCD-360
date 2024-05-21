@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rating Introduction 3
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: VALENCE
+  title: 'VALENCE:'
   displayContent: 1
   content: 'Describes how <color=red>NEGATIVE</color> or <color=green>POSITIVE</color> 
     you are feeling.

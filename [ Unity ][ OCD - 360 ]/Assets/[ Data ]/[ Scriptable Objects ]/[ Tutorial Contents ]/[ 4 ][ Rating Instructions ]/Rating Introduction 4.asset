@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rating Introduction 4
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: AROUSAL
+  title: 'AROUSAL:'
   displayContent: 1
   content: 'Describes the INTENSITY of your emotions.
 

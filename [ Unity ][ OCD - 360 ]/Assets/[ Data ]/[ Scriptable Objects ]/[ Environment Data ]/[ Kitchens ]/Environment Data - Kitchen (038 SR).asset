@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b9cabc38fba3966468933b2781a3fb6c, type: 2}
   rotationOffset: {x: 0.68000436, y: 0, z: 4.5199943}
+  renderPlatform: 1

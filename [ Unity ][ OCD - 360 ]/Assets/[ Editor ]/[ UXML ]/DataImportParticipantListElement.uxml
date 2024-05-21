@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <uie:ObjectField label="Experiment Data" name="ExperimentDataObjectField" type="UnityEngine.TextAsset, UnityEngine.CoreModule" />
+        <uie:ObjectField label="Emteq .json" name="EmteqJSONObjectField" type="UnityEngine.TextAsset, UnityEngine.CoreModule" />
+        <uie:ObjectField label="Emteq .dab" name="EmteqDabObjectField" type="UnityEngine.TextAsset, UnityEngine.CoreModule" />
+        <uie:ObjectField label="Emteq .eyedata" name="EmteqEyeDataObjectField" type="UnityEngine.TextAsset, UnityEngine.CoreModule" />
+    </ui:VisualElement>
+</ui:UXML>

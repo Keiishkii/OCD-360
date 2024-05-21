@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Practice Instructions 12
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: Practice Task Completed
+  title: 'Practice Task Completed:'
   displayContent: 1
   content: 'You should now have a good understanding of the task, the rating system
     and the controls used to make these ratings.

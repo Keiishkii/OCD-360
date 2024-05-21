@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rating Introduction 5
   m_EditorClassIdentifier: 
   displayTitle: 1
-  title: AFFECT SCALE
+  title: 'AFFECT SCALE:'
   displayContent: 1
   content: "A new UI element will now be visible from the top of you right hand controller.
     This displays the values your finger position translates to for both valence

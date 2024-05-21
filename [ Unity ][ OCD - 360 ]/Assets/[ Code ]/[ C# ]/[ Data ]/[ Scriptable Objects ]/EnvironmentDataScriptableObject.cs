@@ -6,5 +6,6 @@ public class EnvironmentDataScriptableObject : ScriptableObject
     #region [ Serialised Fields ]
     public Material material;
     public Vector3 rotationOffset;
+    public bool renderPlatform;
     #endregion
 }
