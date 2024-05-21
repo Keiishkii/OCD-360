@@ -1,0 +1,44 @@
+Changes:
+
+Charlie:
+[x] two screens (emteq screen and unity screen)
+[ ]	Height / Platform Issues:
+	[ ] beach feels scary (height problem, platform solution)
+	[ ] hight differences between scenes problem
+	[ ] in some scenes the stimuli feel too big (e.g. toilet role, door, toilet, bin) - feel small in a giant room)
+[ ] Tutorial:
+	[ ] AV values for practice scences are not correct
+	[ ] start instructions (remind about right to withdraw when too upsetting)
+	[ ] send instruction (the scriptable obejcts for the user) list as word documents and screenshots to all of us. 
+[ ] Experiment:
+	[ ] Add skip / override for Emteq sensor UI
+	[ ] perspective changing between blocks not trials
+	[ ] beach scenes after every trial (if possible)
+	[ ] transition needs to be whole screen, square shaped and trigger at the end of the square time (start of new scene)
+	[ ] triggers before every event (trial based; think with Ellen about triggernames)
+	[ ] add emteq triggers and LSL
+	[ ] data files for differnt states (room rotations, ... ) - we need to do have this post-processing
+	[x] blur out person in office
+
+Damla / Ruya:
+- hang cable from the ceiling
+- record new beach scenes (Ruya)
+- Damla has camera details (sent to Ruya)
+- check signals before experiment (into instructions)
+- move around with whole body and less with the head (reduces motion sickness, and beter signal) (into instructions)
+- right to withdraw (take headset off if you want to stop) (instruction)
+- picture ROI object selection (most triggering item is floor,bin,towels,...)
+- if u have OCD not to participate this experiment (double check it in the lab)
+- read instructions that are sent from Charlie
+
+Ellen:
+- bungie thingie and hook
+- longer vive cable and hook for the ceiling
+- standing throughtout scenes
+- battery for controller
+- read instructions sent from Charlie
+
+ 
+
+
+
