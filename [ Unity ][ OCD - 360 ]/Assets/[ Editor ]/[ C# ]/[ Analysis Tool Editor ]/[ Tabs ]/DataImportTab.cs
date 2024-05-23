@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -10,10 +11,11 @@ namespace MINELab
     [Serializable]
     public partial class AnalysisTool : EditorWindow
     {
+        [Serializable]
         public class DataImportTab
         {
             #region [ Serialised Fields ]
-            public List<AnalysisDataContainer> analysisDataContainers = new List<AnalysisDataContainer>();
+            [SerializeField] private List<AnalysisDataContainer> analysisDataContainers = new List<AnalysisDataContainer>();
             #endregion
             
             #region [ Unserialised Fields ]
@@ -84,26 +86,33 @@ namespace MINELab
             {
                 _participantImportDataListElement = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/[ Editor ]/[ UXML ]/DataImportParticipantListElement.uxml");
                 
-                VisualElement MakeItem()
-                {
-                    analysisDataContainers.Add(new AnalysisDataContainer());
-                    return _participantImportDataListElement.Instantiate();
-                }
-
-                
+                VisualElement MakeItem() => _participantImportDataListElement.CloneTree();
                 
                 void BindItem(VisualElement element, int i)
                 {
-                    ObjectField experimentDataObjectField = element.Q<ObjectField>("ExperimentDataObjectField");
-                    experimentDataObjectField.value = analysisDataContainers[i].experimentData;
-                    ObjectField emteqJSONObjectField = element.Q<ObjectField>("EmteqJSONObjectField");
-                    emteqJSONObjectField.value = analysisDataContainers[i].emteqJSON;
-                    ObjectField emteqDabObjectField = element.Q<ObjectField>("EmteqDabObjectField");
-                    emteqDabObjectField.value = analysisDataContainers[i].emteqDab;
-                    ObjectField emteqEyeDataObjectField = element.Q<ObjectField>("EmteqEyeDataObjectField");
-                    emteqEyeDataObjectField.value = analysisDataContainers[i].emteqEyeData;
+                    if (element.Q<ObjectField>("ExperimentDataObjectField") is { } experimentDataObjectField && analysisDataContainers?[i].experimentData is { } experimentData)
+                        experimentDataObjectField.value = experimentData;
+                    
+                    if (element.Q<ObjectField>("EmteqJSONObjectField") is { } emteqJSONObjectField && analysisDataContainers?[i].experimentData is { } emteqJSON)
+                        emteqJSONObjectField.value = emteqJSON;
+                    
+                    if (element.Q<ObjectField>("EmteqDabObjectField") is { } emteqDabObjectField && analysisDataContainers?[i].experimentData is { } emteqDab)
+                        emteqDabObjectField.value = emteqDab;
+                    
+                    if (element.Q<ObjectField>("EmteqEyeDataObjectField") is { } field && analysisDataContainers?[i].experimentData is { } emteqEyeData)
+                        field.value = emteqEyeData;
                 }
 
+                _participantImportListView.itemsAdded += (index) =>
+                {
+                    Debug.Log($"Added: {index.ToArray()[0]}"); 
+                };
+                
+                _participantImportListView.itemsRemoved += (index) =>
+                {
+                    Debug.Log($"Removed: {index.ToArray()[0]}"); 
+                }; 
+                
                 _participantImportListView.makeItem = MakeItem;
                 _participantImportListView.bindItem = BindItem;
                 _participantImportListView.itemsSource = analysisDataContainers;
