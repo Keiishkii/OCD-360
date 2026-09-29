@@ -275,7 +275,7 @@ public class LookConversionTest : MonoBehaviour
         if (!collision) return;
         foreach (Glyph glyph in glyphs)
         {
-            Debug.Log(glyph.name);
+            Debug.Log($"Looking At: {glyph.name}");
         }
     }
 
