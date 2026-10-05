@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0bed2b79efd11049bb7e016e656534b, type: 3}
-  m_Name: Block 3
+  m_Script: {fileID: 11500000, guid: 8634303694e6b344b9f19ecbfd4f81d3, type: 3}
+  m_Name: Environment Data - Debugging
   m_EditorClassIdentifier: 
-  trials:
-  - environmentMaterial: {fileID: 11400000, guid: 2d470e145296560edb673bb1f5e362d4, type: 2}
-    environmentYRotationOffset: 0
+  material: {fileID: 2100000, guid: ba91b5c79af75dc10bde3ace8bfc0d22, type: 2}
+  rotationOffset: {x: 0, y: 0, z: 0}
+  renderPlatform: 0
